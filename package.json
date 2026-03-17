@@ -17,6 +17,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "prettier . --write",
+    "createBlog": "node code/create-blog/app.ts",
     "build": "node code/blog-generation/app.ts",
     "serveProd": "node code/server/app.ts",
     "serveDev": "node code/server/app.ts src",

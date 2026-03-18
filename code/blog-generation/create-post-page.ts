@@ -1,4 +1,5 @@
 import { type PostInfo } from "./types.ts";
+import markdownHtmlConvertor from "./markdown_html_convertor.ts";
 
 const createPostPage = (
   pageTemplate: string,
@@ -16,7 +17,7 @@ const createPostPage = (
     )
     .replace(
       /<!--INJECT-POST-CONTENT-START-->([\s\S]*?)<!--INJECT-POST-CONTENT-END-->/s,
-      postContent,
+      markdownHtmlConvertor(postContent),
     );
 
 export default createPostPage;

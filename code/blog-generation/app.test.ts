@@ -16,51 +16,28 @@ describe("Test app.ts", async () => {
   ];
 
   const deleteDirContentsMock = mock.fn();
-  const deleteDirContentsExports =
-    await import("./delete-dir-contents.ts").then(
-      ({ default: _, ...rest }) => rest,
-    );
   mock.module("./delete-dir-contents.ts", {
     defaultExport: deleteDirContentsMock,
-    namedExports: deleteDirContentsExports,
   });
 
   const copyFolderContentsMock = mock.fn();
-  const copyFolderContentsExports =
-    await import("./copy-folder-contents.ts").then(
-      ({ default: _, ...rest }) => rest,
-    );
   mock.module("./copy-folder-contents.ts", {
     defaultExport: copyFolderContentsMock,
-    namedExports: copyFolderContentsExports,
   });
 
   const generatePostInfoMock = mock.fn(() => []);
-  const generatePostInfoExports = await import("./generate-post-info.ts").then(
-    ({ default: _, ...rest }) => rest,
-  );
   mock.module("./generate-post-info.ts", {
     defaultExport: generatePostInfoMock,
-    namedExports: generatePostInfoExports,
   });
 
   const generatePostPagesMock = mock.fn();
-  const generatePostPagesExports =
-    await import("./generate-post-pages.ts").then(
-      ({ default: _, ...rest }) => rest,
-    );
   mock.module("./generate-post-pages.ts", {
     defaultExport: generatePostPagesMock,
-    namedExports: generatePostPagesExports,
   });
 
   const generateIndexesMock = mock.fn();
-  const generateIndexesExports = await import("./generate-indexes.ts").then(
-    ({ default: _, ...rest }) => rest,
-  );
   mock.module("./generate-indexes.ts", {
     defaultExport: generateIndexesMock,
-    namedExports: generateIndexesExports,
   });
 
   test("Ensure app calls the correct mocked methods", async () => {

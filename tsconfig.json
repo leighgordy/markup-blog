@@ -9,5 +9,5 @@
     "declaration": true,
     "skipLibCheck": true
   },
-  "include": ["code/**/*.ts"],
+  "include": ["code/**/*.ts"]
 }

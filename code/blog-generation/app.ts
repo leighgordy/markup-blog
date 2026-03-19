@@ -9,7 +9,6 @@ import {
   blogProductionPath,
 } from "./app-config.ts";
 
-
 await deleteDirContents(productionPath);
 await copyFolderContents(sourcePath, productionPath);
 await deleteDirContents(blogProductionPath);

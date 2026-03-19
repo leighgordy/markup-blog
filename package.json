@@ -22,7 +22,7 @@
     "build": "node code/blog-generation/app.ts",
     "serveProd": "node code/server/app.ts",
     "serveDev": "node code/server/app.ts src",
-    "test": "node --test \"**/*.test.ts\""
+    "test": "node --test --experimental-test-module-mocks \"**/*.test.ts\""
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

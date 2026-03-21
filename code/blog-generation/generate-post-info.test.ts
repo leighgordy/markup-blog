@@ -8,7 +8,9 @@ describe("Test generate-post-info.ts", async () => {
   let appConfigContext: any;
 
   beforeEach(async () => {
-    readDirectoriesMock.mock.mockImplementation(() => ["1672531200000_my-post", "1672617600000_another-post"] as any);
+    readDirectoriesMock.mock.mockImplementation(
+      () => ["1672531200000_my-post", "1672617600000_another-post"] as any,
+    );
 
     readDirectoriesContext = mock.module("./read-directories.ts", {
       defaultExport: readDirectoriesMock,
@@ -34,7 +36,10 @@ describe("Test generate-post-info.ts", async () => {
     const result = testee.default();
 
     assert.strictEqual(readDirectoriesMock.mock.callCount(), 1);
-    assert.strictEqual(readDirectoriesMock.mock.calls[0].arguments[0], "./src/blog/post");
+    assert.strictEqual(
+      readDirectoriesMock.mock.calls[0].arguments[0],
+      "./src/blog/post",
+    );
 
     assert.strictEqual(result.length, 2);
 
@@ -43,7 +48,10 @@ describe("Test generate-post-info.ts", async () => {
     assert.strictEqual(firstPost.name, "my post");
     assert.strictEqual(firstPost.directory, "1672531200000_my-post");
     assert.strictEqual(firstPost.blogDirectory, "./dist/blog/2023-1-1-0-0-0");
-    assert.strictEqual(firstPost.blogPage, "./dist/blog/2023-1-1-0-0-0/my-post.html");
+    assert.strictEqual(
+      firstPost.blogPage,
+      "./dist/blog/2023-1-1-0-0-0/my-post.html",
+    );
     assert.strictEqual(firstPost.blogUrl, "/posts/2023-1-1-0-0-0/my-post.html");
 
     const secondPost = result[1];
@@ -52,7 +60,9 @@ describe("Test generate-post-info.ts", async () => {
   });
 
   test("Ensure multiple dashes in filename are converted to spaces", async () => {
-    readDirectoriesMock.mock.mockImplementation(() => ["1672531200000_my-long-post-title"] as any);
+    readDirectoriesMock.mock.mockImplementation(
+      () => ["1672531200000_my-long-post-title"] as any,
+    );
 
     const testee = await import("./generate-post-info.ts");
     const result = testee.default();

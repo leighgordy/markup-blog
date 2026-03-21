@@ -1,5 +1,12 @@
 import assert from "node:assert";
-import { describe, test, mock, beforeEach, afterEach,  type Mock } from "node:test";
+import {
+  describe,
+  test,
+  mock,
+  beforeEach,
+  afterEach,
+  type Mock,
+} from "node:test";
 
 describe("Test delete-dir-contents.ts", async () => {
   const readdirMock = mock.fn() as Mock<() => Promise<String[]>>;
@@ -31,8 +38,12 @@ describe("Test delete-dir-contents.ts", async () => {
   });
 
   test("Ensure files in directory are deleted", async () => {
-    readdirMock.mock.mockImplementation(() => Promise.resolve(["file1.txt", "file2.txt"]));
-    statMock.mock.mockImplementation(() => Promise.resolve({ isDirectory: () => false }));
+    readdirMock.mock.mockImplementation(() =>
+      Promise.resolve(["file1.txt", "file2.txt"]),
+    );
+    statMock.mock.mockImplementation(() =>
+      Promise.resolve({ isDirectory: () => false }),
+    );
     unlinkMock.mock.mockImplementation(() => Promise.resolve() as any);
 
     const testee = await import("./delete-dir-contents.ts");
@@ -45,10 +56,22 @@ describe("Test delete-dir-contents.ts", async () => {
   });
 
   test("Ensure subdirectories are deleted recursively", async () => {
-    readdirMock.mock.mockImplementationOnce(() => Promise.resolve(["subdir"]),0);
-    readdirMock.mock.mockImplementationOnce(() => Promise.resolve(["file.txt"]),1);
-    statMock.mock.mockImplementationOnce(() => Promise.resolve({ isDirectory: () => true }),0);
-    statMock.mock.mockImplementationOnce(() => Promise.resolve({ isDirectory: () => false }),1);
+    readdirMock.mock.mockImplementationOnce(
+      () => Promise.resolve(["subdir"]),
+      0,
+    );
+    readdirMock.mock.mockImplementationOnce(
+      () => Promise.resolve(["file.txt"]),
+      1,
+    );
+    statMock.mock.mockImplementationOnce(
+      () => Promise.resolve({ isDirectory: () => true }),
+      0,
+    );
+    statMock.mock.mockImplementationOnce(
+      () => Promise.resolve({ isDirectory: () => false }),
+      1,
+    );
     unlinkMock.mock.mockImplementation(() => Promise.resolve());
     rmdirMock.mock.mockImplementation(() => Promise.resolve());
 

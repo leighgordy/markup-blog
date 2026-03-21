@@ -24,6 +24,8 @@ describe("Test create-dir.ts", async () => {
     testee.default("./test-dir");
     assert.strictEqual(mkdirSyncMock.mock.callCount(), 1);
     assert.strictEqual(mkdirSyncMock.mock.calls[0].arguments[0], "./test-dir");
-    assert.deepStrictEqual(mkdirSyncMock.mock.calls[0].arguments[1], { recursive: true });
+    assert.deepStrictEqual(mkdirSyncMock.mock.calls[0].arguments[1], {
+      recursive: true,
+    });
   });
 });

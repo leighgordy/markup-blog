@@ -59,9 +59,9 @@ describe("Test markdown_html_convertor.ts", () => {
     assert.strictEqual(result, expected);
   });
 
-  test("Convert link [text](url) to <a href=\"url\">text</a>", () => {
+  test('Convert link [text](url) to <a href="url">text</a>', () => {
     const input = "[link text](http://example.com)";
-    const expected = "<p><a href=\"http://example.com\">link text</a></p>";
+    const expected = '<p><a href="http://example.com">link text</a></p>';
     const result = markdownHtmlConvertor(input);
     assert.strictEqual(result, expected);
   });
@@ -72,7 +72,8 @@ describe("Test markdown_html_convertor.ts", () => {
 This is a **bold** paragraph with *italic* text.
 
 [Link](url) and _underline_.`;
-    const expected = "<h1>Title</h1><p>This is a <strong>bold</strong> paragraph with <em>italic</em> text.</p><p><a href=\"url\">Link</a> and <u>underline</u>.</p>";
+    const expected =
+      '<h1>Title</h1><p>This is a <strong>bold</strong> paragraph with <em>italic</em> text.</p><p><a href="url">Link</a> and <u>underline</u>.</p>';
     const result = markdownHtmlConvertor(input);
     assert.strictEqual(result, expected);
   });

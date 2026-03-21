@@ -10,7 +10,9 @@ describe("Test generate-indexes.ts", async () => {
   beforeEach(async () => {
     readFileMock.mock.mockImplementation(() => "<html>Template</html>" as any);
     createFileMock.mock.mockImplementation(() => {});
-    createIndexPageMock.mock.mockImplementation(() => "<html>Page</html>" as any);
+    createIndexPageMock.mock.mockImplementation(
+      () => "<html>Page</html>" as any,
+    );
 
     mock.module("./read-file.ts", {
       defaultExport: readFileMock,
@@ -41,12 +43,24 @@ describe("Test generate-indexes.ts", async () => {
   test("Ensure indexes are generated for single page", async () => {
     const posts: PostInfo[] = [
       {
-        name: "Post 1", fileName: "", creationDate: new Date("2023-01-01"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 1",
+        fileName: "",
+        creationDate: new Date("2023-01-01"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
       {
-        name: "Post 2", fileName: "", creationDate: new Date("2023-01-02"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 2",
+        fileName: "",
+        creationDate: new Date("2023-01-02"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
     ];
 
@@ -54,30 +68,57 @@ describe("Test generate-indexes.ts", async () => {
     await testee.default(posts);
 
     assert.strictEqual(readFileMock.mock.callCount(), 1);
-    assert.strictEqual(readFileMock.mock.calls[0].arguments[0], "./src/blog/page1.html");
+    assert.strictEqual(
+      readFileMock.mock.calls[0].arguments[0],
+      "./src/blog/page1.html",
+    );
 
     assert.strictEqual(createIndexPageMock.mock.callCount(), 1);
-    assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[1].length, 2); // all posts
+    assert.strictEqual(
+      createIndexPageMock.mock.calls[0].arguments[1].length,
+      2,
+    ); // all posts
     assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[2], 0); // pageNo
     assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[3], 1); // maxPage
 
     assert.strictEqual(createFileMock.mock.callCount(), 1);
-    assert.strictEqual(createFileMock.mock.calls[0].arguments[0], "./dist/blog/page1.html");
+    assert.strictEqual(
+      createFileMock.mock.calls[0].arguments[0],
+      "./dist/blog/page1.html",
+    );
   });
 
   test("Ensure indexes are generated for multiple pages", async () => {
     const posts: PostInfo[] = [
       {
-        name: "Post 1", fileName: "", creationDate: new Date("2023-01-01"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 1",
+        fileName: "",
+        creationDate: new Date("2023-01-01"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
       {
-        name: "Post 2", fileName: "", creationDate: new Date("2023-01-02"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 2",
+        fileName: "",
+        creationDate: new Date("2023-01-02"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
       {
-        name: "Post 3", fileName: "", creationDate: new Date("2023-01-03"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 3",
+        fileName: "",
+        creationDate: new Date("2023-01-03"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
     ];
 
@@ -86,23 +127,47 @@ describe("Test generate-indexes.ts", async () => {
 
     assert.strictEqual(createIndexPageMock.mock.callCount(), 2);
     assert.strictEqual(createFileMock.mock.callCount(), 2);
-    assert.strictEqual(createFileMock.mock.calls[0].arguments[0], "./dist/blog/page1.html");
-    assert.strictEqual(createFileMock.mock.calls[1].arguments[0], "./dist/blog/page2.html");
+    assert.strictEqual(
+      createFileMock.mock.calls[0].arguments[0],
+      "./dist/blog/page1.html",
+    );
+    assert.strictEqual(
+      createFileMock.mock.calls[1].arguments[0],
+      "./dist/blog/page2.html",
+    );
   });
 
   test("Ensure posts are sorted by creation date descending", async () => {
     const posts: PostInfo[] = [
       {
-        name: "Post 1", fileName: "", creationDate: new Date("2023-01-01"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 1",
+        fileName: "",
+        creationDate: new Date("2023-01-01"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
       {
-        name: "Post 3", fileName: "", creationDate: new Date("2023-01-03"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 3",
+        fileName: "",
+        creationDate: new Date("2023-01-03"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
       {
-        name: "Post 2", fileName: "", creationDate: new Date("2023-01-02"), blogDirectory: "", dateDirectory: "", directory: "", blogPage: "",
-        blogUrl: ""
+        name: "Post 2",
+        fileName: "",
+        creationDate: new Date("2023-01-02"),
+        blogDirectory: "",
+        dateDirectory: "",
+        directory: "",
+        blogPage: "",
+        blogUrl: "",
       },
     ];
 
@@ -116,6 +181,5 @@ describe("Test generate-indexes.ts", async () => {
 
     const calledPostsTwo = createIndexPageMock.mock.calls[1].arguments[1];
     assert.strictEqual(calledPostsTwo[0].name, "Post 1");
-    
   });
 });

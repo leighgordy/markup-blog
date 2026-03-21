@@ -16,12 +16,11 @@ describe("Test read-directories.ts", async () => {
 
   afterEach(() => {
     readdirSyncMock.mock.resetCalls();
-    
+
     mock.restoreAll();
   });
 
   test("Ensure fs.readdirSync is called with correct arguments and returns directory names", async () => {
-
     const mockFiles = [
       { name: "file1.txt", isDirectory: () => false },
       { name: "dir1", isDirectory: () => true },
@@ -34,8 +33,13 @@ describe("Test read-directories.ts", async () => {
     const result = testee.default("./test-dir");
 
     assert.strictEqual(readdirSyncMock.mock.callCount(), 1);
-    assert.strictEqual(readdirSyncMock.mock.calls[0].arguments[0], "./test-dir");
-    assert.deepStrictEqual(readdirSyncMock.mock.calls[0].arguments[1], { withFileTypes: true });
+    assert.strictEqual(
+      readdirSyncMock.mock.calls[0].arguments[0],
+      "./test-dir",
+    );
+    assert.deepStrictEqual(readdirSyncMock.mock.calls[0].arguments[1], {
+      withFileTypes: true,
+    });
     assert.deepStrictEqual(result, ["dir1", "dir2"]);
   });
 });

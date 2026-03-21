@@ -26,7 +26,10 @@ describe("Test delete-file.ts", async () => {
     const testee = await import("./delete-file.ts");
     testee.default("./test-file.txt");
     assert.strictEqual(unlinkSyncMock.mock.callCount(), 1);
-    assert.strictEqual(unlinkSyncMock.mock.calls[0].arguments[0], "./test-file.txt");
+    assert.strictEqual(
+      unlinkSyncMock.mock.calls[0].arguments[0],
+      "./test-file.txt",
+    );
   });
 
   test("Ensure console.error is called when fs.unlinkSync throws an error", async () => {
@@ -36,6 +39,10 @@ describe("Test delete-file.ts", async () => {
     const testee = await import("./delete-file.ts");
     testee.default("./nonexistent-file.txt");
     assert.strictEqual(consoleErrorMock.mock.callCount(), 1);
-    assert(consoleErrorMock.mock.calls[0].arguments[0].includes("Error deleting file"));
+    assert(
+      consoleErrorMock.mock.calls[0].arguments[0].includes(
+        "Error deleting file",
+      ),
+    );
   });
 });

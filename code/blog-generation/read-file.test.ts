@@ -16,7 +16,7 @@ describe("Test read-file.ts", async () => {
 
   afterEach(() => {
     readFileSyncMock.mock.resetCalls();
-    
+
     mock.restoreAll();
   });
 
@@ -28,7 +28,10 @@ describe("Test read-file.ts", async () => {
     const result = testee.default("./test-file.txt");
 
     assert.strictEqual(readFileSyncMock.mock.callCount(), 1);
-    assert.strictEqual(readFileSyncMock.mock.calls[0].arguments[0], "./test-file.txt");
+    assert.strictEqual(
+      readFileSyncMock.mock.calls[0].arguments[0],
+      "./test-file.txt",
+    );
     assert.strictEqual(readFileSyncMock.mock.calls[0].arguments[1], "utf-8");
     assert.strictEqual(result, expectedContent);
   });

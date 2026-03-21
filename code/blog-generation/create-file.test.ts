@@ -23,8 +23,16 @@ describe("Test create-file.ts", async () => {
     const testee = await import("./create-file.ts");
     testee.default("./test-file.txt", "Hello World");
     assert.strictEqual(writeFileSyncMock.mock.callCount(), 1);
-    assert.strictEqual(writeFileSyncMock.mock.calls[0].arguments[0], "./test-file.txt");
-    assert.strictEqual(writeFileSyncMock.mock.calls[0].arguments[1], "Hello World");
-    assert.deepStrictEqual(writeFileSyncMock.mock.calls[0].arguments[2], { encoding: "utf8" });
+    assert.strictEqual(
+      writeFileSyncMock.mock.calls[0].arguments[0],
+      "./test-file.txt",
+    );
+    assert.strictEqual(
+      writeFileSyncMock.mock.calls[0].arguments[1],
+      "Hello World",
+    );
+    assert.deepStrictEqual(writeFileSyncMock.mock.calls[0].arguments[2], {
+      encoding: "utf8",
+    });
   });
 });

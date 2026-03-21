@@ -15,6 +15,7 @@ describe("Test copy-file.ts", async () => {
   });
 
   afterEach(() => {
+    copyFileSyncMock.mock.resetCalls();
     mock.restoreAll();
   });
 

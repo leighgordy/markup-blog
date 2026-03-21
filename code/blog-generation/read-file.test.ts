@@ -15,6 +15,8 @@ describe("Test read-file.ts", async () => {
   });
 
   afterEach(() => {
+    readFileSyncMock.mock.resetCalls();
+    
     mock.restoreAll();
   });
 

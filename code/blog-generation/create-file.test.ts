@@ -15,6 +15,7 @@ describe("Test create-file.ts", async () => {
   });
 
   afterEach(() => {
+    writeFileSyncMock.mock.resetCalls();
     mock.restoreAll();
   });
 

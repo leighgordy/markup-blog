@@ -13,6 +13,7 @@ describe("Test create-post-page.ts", async () => {
   });
 
   afterEach(() => {
+    markdownHtmlConvertorMock.mock.resetCalls();
     mock.restoreAll();
   });
 

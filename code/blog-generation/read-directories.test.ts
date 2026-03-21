@@ -15,6 +15,8 @@ describe("Test read-directories.ts", async () => {
   });
 
   afterEach(() => {
+    readdirSyncMock.mock.resetCalls();
+    
     mock.restoreAll();
   });
 

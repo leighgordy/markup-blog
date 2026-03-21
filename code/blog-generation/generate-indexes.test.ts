@@ -34,6 +34,7 @@ describe("Test generate-indexes.ts", async () => {
     readFileMock.mock.resetCalls();
     createFileMock.mock.resetCalls();
     createIndexPageMock.mock.resetCalls();
+
     mock.restoreAll();
   });
 

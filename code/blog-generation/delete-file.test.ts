@@ -17,6 +17,8 @@ describe("Test delete-file.ts", async () => {
   });
 
   afterEach(() => {
+    unlinkSyncMock.mock.resetCalls();
+    consoleErrorMock.mock.resetCalls();
     mock.restoreAll();
   });
 

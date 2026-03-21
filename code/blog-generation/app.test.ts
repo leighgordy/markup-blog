@@ -40,6 +40,12 @@ describe("Test app.ts", async () => {
   });
 
   afterEach(() => {
+    deleteDirContentsMock.mock.resetCalls();
+    copyFolderContentsMock.mock.resetCalls();
+    generatePostInfoMock.mock.resetCalls();
+    generatePostPagesMock.mock.resetCalls();
+    generateIndexesMock.mock.resetCalls();
+
     mock.restoreAll();
   });
 

@@ -15,6 +15,7 @@ describe("Test create-dir.ts", async () => {
   });
 
   afterEach(() => {
+    mkdirSyncMock.mock.resetCalls();
     mock.restoreAll();
   });
 

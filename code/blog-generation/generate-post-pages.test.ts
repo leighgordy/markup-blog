@@ -11,10 +11,12 @@ import { type PostInfo } from "./types.ts";
 
 describe("Test generate-post-pages.ts", async () => {
   const readFileMock = mock.fn() as Mock<(path: string) => String>;
-  const createDirMock = mock.fn() as Mock<() => void>;
-  const createFileMock = mock.fn() as Mock<() => void>;
-  const deleteFileMock = mock.fn() as Mock<() => void>;
-  const copyFolderContentsMock = mock.fn() as Mock<() => Promise<void>>;
+  const createDirMock = mock.fn() as Mock<(path: string) => void>;
+  const createFileMock = mock.fn() as Mock<(path: string) => void>;
+  const deleteFileMock = mock.fn() as Mock<(path: string) => void>;
+  const copyFolderContentsMock = mock.fn() as Mock<
+    (from: string, too: string) => Promise<void>
+  >;
   const createPostPageMock = mock.fn() as Mock<(path: string) => String>;
 
   let readFileContext: any;

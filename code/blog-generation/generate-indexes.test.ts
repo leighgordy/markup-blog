@@ -10,9 +10,18 @@ import {
 import { type PostInfo } from "./types.ts";
 
 describe("Test generate-indexes.ts", async () => {
-  const readFileMock = mock.fn() as Mock<() => String>;
-  const createFileMock = mock.fn() as Mock<() => void>;
-  const createIndexPageMock = mock.fn() as Mock<() => String>;
+  const readFileMock = mock.fn() as Mock<(path: string) => String>;
+  const createFileMock = mock.fn() as Mock<
+    (path: string, content: string) => void
+  >;
+  const createIndexPageMock = mock.fn() as Mock<
+    (
+      template: string,
+      posts: PostInfo[],
+      pageNo: number,
+      maxPage: number,
+    ) => String
+  >;
 
   beforeEach(async () => {
     readFileMock.mock.mockImplementation(() => "<html>Template</html>");
@@ -82,9 +91,9 @@ describe("Test generate-indexes.ts", async () => {
     assert.strictEqual(
       createIndexPageMock.mock.calls[0].arguments[1].length,
       2,
-    ); // all posts
-    assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[2], 0); // pageNo
-    assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[3], 1); // maxPage
+    );
+    assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[2], 0);
+    assert.strictEqual(createIndexPageMock.mock.calls[0].arguments[3], 1);
 
     assert.strictEqual(createFileMock.mock.callCount(), 1);
     assert.strictEqual(

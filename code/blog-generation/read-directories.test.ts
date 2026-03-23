@@ -7,10 +7,18 @@ import {
   afterEach,
   type Mock,
 } from "node:test";
+import { type Dirent } from "fs";
+import type { ObjectEncodingOptions, PathLike } from "node:fs";
 
 describe("Test read-directories.ts", async () => {
   const readdirSyncMock = mock.fn() as Mock<
-    () => { name: string; isDirectory: () => boolean }[]
+    (
+      path: PathLike,
+      options: ObjectEncodingOptions & {
+        withFileTypes: true;
+        recursive?: boolean | undefined;
+      },
+    ) => Dirent[]
   >;
 
   beforeEach(async () => {
@@ -35,7 +43,7 @@ describe("Test read-directories.ts", async () => {
       { name: "dir1", isDirectory: () => true },
       { name: "file2.js", isDirectory: () => false },
       { name: "dir2", isDirectory: () => true },
-    ];
+    ] as Dirent[];
     readdirSyncMock.mock.mockImplementation(() => mockFiles);
 
     const testee = await import("./read-directories.ts");

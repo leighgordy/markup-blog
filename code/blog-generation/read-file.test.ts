@@ -9,7 +9,9 @@ import {
 } from "node:test";
 
 describe("Test read-file.ts", async () => {
-  const readFileSyncMock = mock.fn() as Mock<() => String>;
+  const readFileSyncMock = mock.fn() as Mock<
+    (path: string, type: string) => String
+  >;
 
   beforeEach(async () => {
     const fsExports = await import("fs").then(({ default: _, ...rest }) => ({

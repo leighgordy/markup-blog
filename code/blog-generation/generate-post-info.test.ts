@@ -9,7 +9,9 @@ import {
 } from "node:test";
 
 describe("Test generate-post-info.ts", async () => {
-  const readDirectoriesMock = mock.fn() as Mock<() => String[]>;
+  const readDirectoriesMock = mock.fn() as Mock<
+    (directoryPath: string) => String[]
+  >;
 
   let readDirectoriesContext: any;
   let appConfigContext: any;

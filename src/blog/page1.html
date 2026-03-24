@@ -1,31 +1,50 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Post Index</title>
   </head>
   <body>
-    <main>
-      <header>
-        <h1>Posts</h1>
-      </header>
-      <!--INJECT-POSTS-START-->
-      <a href="./post/post.html">
-        <section>
-          <header>
-            <h2>An Example Post</h2>
-          </header>
-          <p>A Post containing content</p>
-        </section>
-      </a>
-      <!--INJECT-POSTS-END-->
-      <footer>
+    <div id="container">
+      <div id="navigation">
         <nav>
-          <!--INJECT-POSTS-NAV-START-->
-          <a href="#">Prev</a>
-          <a href="#">Next</a>
-          <!--INJECT-POSTS-NAV-END-->
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="/index.html">Index</a></li>
+            <li><a href="/blog/page1.html">Blog</a></li>
+          </ul>
         </nav>
-      </footer>
-    </main>
+      </div>
+      <div id="page">
+        <main>
+          <header>
+            <h1>Posts</h1>
+          </header>
+          <!--INJECT-POSTS-START-->
+          <a href="./post/post.html">
+            <section>
+              <header>
+                <h2>An Example Post</h2>
+              </header>
+              <p>A Post containing content</p>
+            </section>
+          </a>
+          <!--INJECT-POSTS-END-->
+          <footer>
+            <nav>
+              <!--INJECT-POSTS-NAV-START-->
+              <a href="#">Prev</a>
+              <a href="#">Next</a>
+              <!--INJECT-POSTS-NAV-END-->
+            </nav>
+          </footer>
+        </main>
+      </div>
+    </div>
+    <div id="footer">
+      <section>
+        <h2>Footer</h2>
+      </section>
+    </div>
   </body>
 </html>

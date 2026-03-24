@@ -1,0 +1,27 @@
+div#container {
+  display: flex;
+  height: 96vh;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  align-items: flex-start;
+  gap: 1vw 1vh;
+  margin: 1vw 1vh;
+}
+
+div#navigation {
+  flex-grow: 1;
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding);
+}
+
+div#page {
+  flex-grow: 4;
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding);
+}
+
+div#footer {
+  background-color: var(--secondary-bg-color);
+  padding: var(--section-padding);
+}

@@ -1,29 +1,51 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>
+      <!--INJECT-POST-TITLE-START--> post header <!--INJECT-POST-TITLE-END-->
+    </title>
   </head>
-  <body>
-    <main>
-      <header>
-        <h1>
-          <!--INJECT-POST-TITLE-START-->
-          post header
-          <!--INJECT-POST-TITLE-END-->
-        </h1>
-        <p>
-          <!--INJECT-POST-DATE-START-->
-          post header
-          <!--INJECT-POST-DATE-END-->
-        </p>
 
-        <p></p>
-      </header>
-      <div id="post-content">
-        <!--INJECT-POST-CONTENT-START-->
-        <p>THis is a post I once wrote</p>
-        <!--INJECT-POST-CONTENT-END-->
+  <body>
+    <div id="container">
+      <div id="navigation">
+        <nav>
+          <h2>Navigation</h2>
+          <ul>
+            <li><a href="/index.html">Index</a></li>
+            <li><a href="/blog/page1.html">Blog</a></li>
+          </ul>
+        </nav>
       </div>
-    </main>
+      <div id="page">
+        <main>
+          <header>
+            <h1>
+              <!--INJECT-POST-TITLE-START-->
+              post header
+              <!--INJECT-POST-TITLE-END-->
+            </h1>
+            <p>
+              <!--INJECT-POST-DATE-START-->
+              post header
+              <!--INJECT-POST-DATE-END-->
+            </p>
+
+            <p></p>
+          </header>
+          <div id="post-content">
+            <!--INJECT-POST-CONTENT-START-->
+            <p>THis is a post I once wrote</p>
+            <!--INJECT-POST-CONTENT-END-->
+          </div>
+        </main>
+      </div>
+    </div>
+    <div id="footer">
+      <section>
+        <h2>Footer</h2>
+      </section>
+    </div>
   </body>
 </html>

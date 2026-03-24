@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--primary-bg-color);
+  color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--primary-link-color);
+}

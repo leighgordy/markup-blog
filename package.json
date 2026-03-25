@@ -1,14 +1,14 @@
 {
-  "name": "markup-blog",
+  "name": "markdown-blog",
   "version": "0.0.1",
-  "description": "A static site that converts markup into blog pages",
-  "homepage": "https://github.com/leighgordy/markup-blog#readme",
+  "description": "A static site that converts markdown into blog pages",
+  "homepage": "https://github.com/leighgordy/markdown-blog#readme",
   "bugs": {
-    "url": "https://github.com/leighgordy/markup-blog/issues"
+    "url": "https://github.com/leighgordy/markdown-blog/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leighgordy/markup-blog.git"
+    "url": "git+https://github.com/leighgordy/markdown-blog.git"
   },
   "license": "UNLICENCED",
   "private": "true",

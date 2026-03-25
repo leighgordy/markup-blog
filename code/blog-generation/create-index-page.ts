@@ -1,4 +1,5 @@
 import { type PostInfo } from "./types.ts";
+import { author } from "./app-config.ts";
 
 const navHtml = (pageNo: number, maxPage: number) => ` 
   ${pageNo == 0 ? "" : `<a href="./page${pageNo}.html">Previous Page </a>`}
@@ -34,7 +35,7 @@ const createIndexPage = (
                   est...
                 </p>
                 <footer class="post-page-article-footer">
-                  <div class="post-page-article-footer-item">Author: Joe Bloggs</div>
+                  <div class="post-page-article-footer-item">Author: ${author}}</div>
                   <div class="post-page-article-footer-date">
                     Date: ${post.creationDate.toLocaleDateString("en-GB", { weekday: "long", year: "numeric", month: "long", day: "numeric" })}
                   </div>

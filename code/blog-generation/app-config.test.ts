@@ -4,7 +4,7 @@ import * as testee from "./app-config.ts";
 
 describe("Test app-config.ts", () => {
   test("Count exported attributes, confirm each returns correct paramater", () => {
-    assert.strictEqual(Object.keys(testee).length, 9);
+    assert.strictEqual(Object.keys(testee).length, 10);
 
     assert.strictEqual(testee.sourcePath, "./src");
     assert.strictEqual(testee.productionPath, "./dist");
@@ -15,5 +15,6 @@ describe("Test app-config.ts", () => {
     assert.strictEqual(testee.postPageTemplate, "./src/blog/post/post.html");
     assert.strictEqual(testee.postsPerPage, 5);
     assert.strictEqual(testee.postUrlPath, "/blog");
+    assert.strictEqual(testee.author, "Joe Bloggs");
   });
 });

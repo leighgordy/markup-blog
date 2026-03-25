@@ -11,6 +11,7 @@ const postPageTemplate = `${blogSourcePath}/post/post.html`;
 const postsPerPage = 5;
 
 const postUrlPath = "/blog";
+const author = "Joe Bloggs";
 
 export {
   sourcePath,
@@ -22,4 +23,5 @@ export {
   postPageTemplate,
   postsPerPage,
   postUrlPath,
+  author,
 };

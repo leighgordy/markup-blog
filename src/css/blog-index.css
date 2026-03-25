@@ -1,0 +1,38 @@
+.post-page-article {
+  display: flex;
+  gap: 10px;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  background-color: var(--tertiary-bg-color);
+  padding: var(--section-padding);
+}
+
+.post-page-list {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.post-page-article-thumbnail {
+  background-color: black;
+  flex-grow: 1;
+}
+
+.post-page-article-content {
+  flex-grow: 1;
+}
+
+.post-page-article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.post-page-navigation {
+  padding-top: 1vh;
+  width: 30vw;
+  text-align: center;
+  margin: auto;
+}

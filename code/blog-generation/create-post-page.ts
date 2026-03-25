@@ -7,8 +7,8 @@ const createPostPage = (
   postInfo: PostInfo,
 ): string =>
   pageTemplate
-    .replace(
-      /<!--INJECT-POST-TITLE-START-->([\s\S]*?)<!--INJECT-POST-TITLE-END-->/s,
+    .replaceAll(
+      /<!--INJECT-POST-TITLE-START-->([\s\S]*?)<!--INJECT-POST-TITLE-END-->/g,
       postInfo.name,
     )
     .replace(

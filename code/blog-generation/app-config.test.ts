@@ -14,6 +14,6 @@ describe("Test app-config.ts", () => {
     assert.strictEqual(testee.blogIndexPageTemplate, "./src/blog/page1.html");
     assert.strictEqual(testee.postPageTemplate, "./src/blog/post/post.html");
     assert.strictEqual(testee.postsPerPage, 5);
-    assert.strictEqual(testee.postUrlPath, "/posts");
+    assert.strictEqual(testee.postUrlPath, "/blog");
   });
 });

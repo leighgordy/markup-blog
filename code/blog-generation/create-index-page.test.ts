@@ -38,7 +38,7 @@ describe("Test create-index-page.ts", async () => {
 
     assert(result.includes("<h2>Post 1</h2>"));
     assert(result.includes("<h2>Post 2</h2>"));
-    assert(result.includes("<article>"));
+    assert(result.includes("<article"));
   });
 
   test("Ensure navigation is injected correctly for first page", async () => {

@@ -10,7 +10,7 @@ const postPageTemplate = `${blogSourcePath}/post/post.html`;
 
 const postsPerPage = 5;
 
-const postUrlPath = "/posts";
+const postUrlPath = "/blog";
 
 export {
   sourcePath,
